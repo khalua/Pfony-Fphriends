@@ -8,8 +8,11 @@ get '/' do
   erb :home
 end
 
-
 get '/add' do
+  erb :add
+end
+
+post '/add' do
   @first = params[:first]
   @last = params[:last]
   @gender = params[:gender]
@@ -23,8 +26,7 @@ get '/add' do
   conn.exec(sql)
   conn.close
 
-  erb :add
-
+  redirect "/view"
 end
 
 
@@ -34,7 +36,7 @@ get '/view' do
   @rows = conn.exec(sql)
   conn.close
 
-  erb: view
+  erb  :view
 
 end
 
