@@ -2,6 +2,7 @@ create table friends (
   id serial4 primary key,
   first varchar(50) not null,
   last varchar(50) not null,
+  age smallint,
   gender varchar(6) not null,
   image varchar(200),
   twitter varchar(30),

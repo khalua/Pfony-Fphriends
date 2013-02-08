@@ -1,0 +1,18 @@
+<% if @rows.present? %>
+
+
+  <% @rows.each do |row| %>
+<div class="media span4">
+      <img class="media-object pull_left" data-src="holder.js/300x200" src="<%= row['image'] %>">
+</div>
+    <div class="media-body span8 pull_right">
+      <h4 class="media-heading"><%= row['first'] %> <%= row['last'] %></h4>
+        <p>some bullshit</p>
+    </div>
+
+</div>
+  <% end %>
+
+
+<% end %>
+

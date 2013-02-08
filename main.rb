@@ -15,12 +15,13 @@ end
 post '/add' do
   @first = params[:first]
   @last = params[:last]
+  @age = params[:age].to_i
   @gender = params[:gender]
   @image = params[:image]
   @twitter = params[:twitter]
   @github = params[:github]
 
-  sql = "insert into friends (first, last, gender, image, twitter, github) values ('#{@first}','#{@last}','#{@gender}','#{@image}','#{@twitter}','#{@github}');"
+  sql = "insert into friends (first, last, age, gender, image, twitter, github) values ('#{@first}','#{@last}',#{@age},'#{@gender}','#{@image}','#{@twitter}','#{@github}');"
 
   conn = PG.connect(:dbname =>'friends', :host => 'localhost')
   conn.exec(sql)
