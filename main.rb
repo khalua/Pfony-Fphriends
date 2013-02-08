@@ -28,8 +28,9 @@ post '/add' do
   conn = PG.connect(:dbname =>'friends', :host => 'localhost')
   conn.exec(sql)
   conn.close
-
+  @active = true
   redirect "/view"
+
 end
 
 
@@ -39,7 +40,7 @@ get '/view' do
   conn = PG.connect(:dbname =>'friends', :host => 'localhost')
   @rows = conn.exec(sql)
   conn.close
-
+ @active = true
   erb  :view
 
 end
