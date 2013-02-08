@@ -9,7 +9,9 @@ get '/' do
 end
 
 get '/add' do
+
   erb :add
+
 end
 
 post '/add' do
@@ -32,6 +34,7 @@ end
 
 
 get '/view' do
+  @active = true
   sql = "select * from friends;"
   conn = PG.connect(:dbname =>'friends', :host => 'localhost')
   @rows = conn.exec(sql)

@@ -1,18 +1,26 @@
 <% if @rows.present? %>
 
+<% @rows.each do |row| %>
+<div class="row">
+  <div class="span3 offset1">
+    <ul class="thumbnails">
+      <li>
+       <img src="<%= row['image'] %>">
+     </li>
+   </ul>
+ </div>
 
-  <% @rows.each do |row| %>
-<div class="media span4">
-      <img class="media-object pull_left" data-src="holder.js/300x200" src="<%= row['image'] %>">
-</div>
-    <div class="media-body span8 pull_right">
-      <h4 class="media-heading"><%= row['first'] %> <%= row['last'] %></h4>
-        <p>some bullshit</p>
-    </div>
+ <div class="span8">
+  <h4><%= row['first'] %> <%= row['last'] %>, <%= row['age'] %>, <%= row['gender'] %></h4>
+   <ul class="unstyled">
+      <li><img src="images/twitter_icon.png" height="30px" width="30px"><a href="https://twitter.com/<%= row['twitter'] %>"><%= row['twitter'] %></a></li>
 
+      <li><img src="images/github_icon.png" height="30px" width="30px"><a href="https://github.com/<%= row['github'] %>"><%= row['github'] %></a></li>
+  </ul>
 </div>
-  <% end %>
+</div>
+
 
 
 <% end %>
-
+<% end %>
